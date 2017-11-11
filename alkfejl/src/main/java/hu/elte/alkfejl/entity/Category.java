@@ -5,6 +5,8 @@
  */
 package hu.elte.alkfejl.entity;
 
+import java.util.List;
+import javax.persistence.CascadeType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,6 +16,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 /**
  *
  * @author Blanka Orosz
@@ -31,5 +35,9 @@ public class Category extends BaseEntity{
     public enum CategoryName {
         ART, HOME, TECH, WOMEN, MEN
     }
+    
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+    private List<Product> products;
     
 }

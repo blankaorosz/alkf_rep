@@ -5,7 +5,10 @@
  */
 package hu.elte.alkfejl.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,6 +16,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import org.springframework.format.annotation.DateTimeFormat;
 /**
  *
@@ -33,5 +40,13 @@ public class Order extends BaseEntity{
     
     @Column
     private Boolean status;
-
+    
+    @JoinColumn
+    @ManyToOne(targetEntity = User.class, optional = false)
+    @JsonIgnoreProperties("orders")
+    private User user;
+    
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id")
+    private Product product;
 }

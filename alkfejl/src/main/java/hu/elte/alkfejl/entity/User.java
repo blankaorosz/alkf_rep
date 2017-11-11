@@ -5,6 +5,9 @@
  */
 package hu.elte.alkfejl.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,6 +17,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 /**
  *
  * @author Blanka Orosz
@@ -38,4 +42,9 @@ public class User extends BaseEntity{
     public enum Role {
         GUEST, USER, ADMIN
     }
+    
+    @OneToMany(targetEntity = Order.class, mappedBy = "user")
+    @JsonIgnoreProperties("user")
+    @JsonIgnore
+    private List<Order> orders;
 }

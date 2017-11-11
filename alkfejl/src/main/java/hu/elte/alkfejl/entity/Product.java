@@ -15,7 +15,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -32,4 +34,10 @@ public class Product extends BaseEntity {
     
     @Column
     private Long price;
+    
+    @OneToOne(mappedBy = "product")
+    private Order order;
+    
+    @ManyToMany(mappedBy = "products")
+    private List<Category> categories;
 }
