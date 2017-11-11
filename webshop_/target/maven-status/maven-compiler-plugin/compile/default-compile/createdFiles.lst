@@ -1,0 +1,14 @@
+hu\elte\alkfejl\entity\Category.class
+hu\elte\alkfejl\entity\CatProd.class
+hu\elte\alkfejl\controller\TryController.class
+hu\elte\alkfejl\entity\User.class
+hu\elte\alkfejl\repository\OrderRepository.class
+hu\elte\alkfejl\entity\BaseEntity.class
+hu\elte\alkfejl\repository\ProductRepository.class
+hu\elte\alkfejl\entity\Category$CategoryName.class
+hu\elte\alkfejl\entity\User$Role.class
+hu\elte\alkfejl\repository\UserRepository.class
+hu\elte\alkfejl\entity\Order.class
+hu\elte\alkfejl\controller\OrderController.class
+hu\elte\alkfejl\entity\Product.class
+hu\elte\alkfejl\webshop\WebshopApplication.class
